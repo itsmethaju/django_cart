@@ -1,0 +1,285 @@
+{% extends 'base.html'%}
+
+
+
+{% load static %}
+{% block content %}
+			
+			</div>
+		</div>
+	</div>
+	<!-- header section end -->
+	<!-- new collection section start -->
+    <div class="layout_padding collection_section">
+    	<div class="container">
+    	    <h1 class="new_text"><strong>New  Collection</strong></h1>
+    	    <p class="consectetur_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+    	    <div class="collection_section_2">
+    	    	<div class="row">
+    	    		<div class="col-md-6">
+    	    			<div class="about-img">
+    	    				<button class="new_bt">New</button>
+    	    				<div class="shoes-img"><img src="{% static 'images/shoes-img1.png' %}"></div>
+    	    				<p class="sport_text">Men Sports</p>
+    	    				<div class="dolar_text">$<strong style="color: #f12a47;">90</strong> </div>
+    	    				<div class="star_icon">
+    	    					<ul>
+    	    						<li><a href="#"><img src="{% static 'images/star-icon.png' %}"></a></li>
+    	    						<li><a href="#"><img src="{% static 'images/star-icon.png' %}"></a></li>
+    	    						<li><a href="#"><img src="{% static 'images/star-icon.png' %}"></a></li>
+    	    						<li><a href="#"><img src="{% static 'images/star-icon.png' %}"></a></li>
+    	    						<li><a href="#"><img src="{% static 'images/star-icon.png' %}"></a></li>
+    	    					</ul>
+    	    				</div>
+    	    			</div>
+    	    			<button class="seemore_bt">See More</button>
+    	    		</div>
+    	    		<div class="col-md-6">
+    	    			<div class="about-img2">
+    	    				<div class="shoes-img2"><img src="{% static 'images/shoes-img2.png' %}"></div>
+    	    				<p class="sport_text">Men Sports</p>
+    	    				<div class="dolar_text">$<strong style="color: #f12a47;">90</strong> </div>
+    	    				<div class="star_icon">
+    	    					<ul>
+    	    						<li><a href="#"><img src="{% static 'images/star-icon.png' %}"></a></li>
+    	    						<li><a href="#"><img src="{% static 'images/star-icon.png' %}"></a></li>
+    	    						<li><a href="#"><img src="{% static 'images/star-icon.png' %}"></a></li>
+    	    						<li><a href="#"><img src="{% static 'images/star-icon.png' %}"></a></li>
+    	    						<li><a href="#"><img src="{% static 'images/star-icon.png' %}"></a></li>
+    	    					</ul>
+    	    				</div>
+    	    			</div>
+    	    		</div>
+    	    	</div>
+    	    </div>
+    	</div>
+    </div>
+    <div class="collection_section">
+    	<div class="container">
+    		<h1 class="new_text"><strong>Racing Boots</strong></h1>
+    	    <p class="consectetur_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+    	</div>
+    </div>
+    <div class="collectipn_section_3 layuot_padding">
+    	<div class="container">
+    		<div class="racing_shoes">
+    			<div class="row">
+    				<div class="col-md-8">
+    					<div class="shoes-img3"><img src="{% static 'images/shoes-img3.png' %}"></div>
+    				</div>
+    				<div class="col-md-4">
+    					<div class="sale_text"><strong>Sale <br><span style="color: #0a0506;">JOGING</span> <br>SHOES</strong></div>
+    					<div class="number_text"><strong>$ <span style="color: #0a0506">100</span></strong></div>
+    					<button class="seemore">See More</button>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="collection_section layout_padding">
+    	<div class="container">
+    		<h1 class="new_text"><strong>New Arrivals Products</strong></h1>
+    	    <p class="consectetur_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+    	</div>
+    </div>
+	<!-- new collection section end -->
+	<!-- New Arrivals section start -->
+    <div class="layout_padding gallery_section">
+    	<div class="container">
+    		<div class="row">
+			{% for i in pg.object_list %}
+			
+    			<div class="col-sm-4">
+    				<div class="best_shoes height="42" width="42"">
+    					<p class="best_text">{{i.name}}</p>
+    					<div class="shoes_icon"><a href="{{i.get_url}}"><img src="{{i.img.url}}" style="width:300;height:300px"></a></div>
+    					<div class="star_text">
+    						<div class="left_part">
+    							<P class="text">{{i.desc|truncatewords:3}} </p>
+								<p class="card-stock"> stock : {{i.stock}}</p>
+    						</div>
+    						<div class="right_part">
+    							<div class="shoes_price">RS<span style="color: #ff4e5b;">{{i.price}}</span></div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		{% endfor %}
+			
+    		</div>
+    		<div class="buy_now_bt">
+    			<button class="buy_text">Buy Now</button>
+    		</div>
+    	</div>
+    </div>
+	<center>
+	{% for p in pg.paginator.page_range %}
+	<a href="?page={{p}}" class="btn btn-light btn-sm {% if page.number == p%} active {% endif%}">{{p}}</a>
+	{% endfor %}
+	</center>
+   	<!-- New Arrivals section end -->
+   	<!-- contact section start -->
+    <div class="layout_padding contact_section">
+    	<div class="container">
+    		<h1 class="new_text"><strong>Contact Now</strong></h1>
+    	</div>
+    	<div class="container-fluid ram">
+    		<div class="row">
+    			<div class="col-md-6">
+    				<div class="email_box">
+                    <div class="input_main">
+                       <div class="container">
+                          <form action="/action_page.php">
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="Name" name="Name">
+                            </div>
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="Phone Numbar" name="Name">
+                            </div>
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="Email" name="Email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
+                            </div>
+                          </form>   
+                       </div> 
+                       <div class="send_btn">
+                        <button class="main_bt">Send</button>
+                       </div>                   
+                    </div>
+    		</div>
+    			</div>
+    			<div class="col-md-6">
+    				<div class="shop_banner">
+    					<div class="our_shop">
+    						<button class="out_shop_bt">Our Shop</button>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+   	<!-- contact section end -->
+	<!-- section footer start -->
+    <div class="section_footer">
+    	<div class="container">
+    		<div class="mail_section">
+    			<div class="row">
+    				<div class="col-sm-6 col-lg-2">
+    					<div><a href="#"><img src="{% static 'images/footer-logo.png' %}"></a></div>
+    				</div>
+    				<div class="col-sm-6 col-lg-2">
+    					<div class="footer-logo"><img src="{% static 'images/phone-icon.png' %}"><span class="map_text">(71) 1234567890</span></div>
+    				</div>
+    				<div class="col-sm-6 col-lg-3">
+    					<div class="footer-logo"><img src="{% static 'images/email-icon.png' %}"><span class="map_text">Demo@gmail.com</span></div>
+    				</div>
+    				<div class="col-sm-6 col-lg-3">
+    					<div class="social_icon">
+    						<ul>
+    							<li><a href="#"><img src="{% static 'images/fb-icon.png' %}"></a></li>
+    							<li><a href="#"><img src="{% static 'images/twitter-icon.png' %}"></a></li>
+    							<li><a href="#"><img src="{% static 'images/in-icon.png' %}"></a></li>
+    							<li><a href="#"><img src="{% static 'images/google-icon.png' %}"></a></li>
+    						</ul>
+    					</div>
+    				</div>
+    				<div class="col-sm-2"></div>
+    			</div>
+    	    </div> 
+    	    <div class="footer_section_2">
+		        <div class="row">
+    		        <div class="col-sm-4 col-lg-2">
+    		        	<p class="dummy_text"> ipsum dolor sit amet, consectetur ipsum dolor sit amet, consectetur  ipsum dolor sit amet,</p>
+    		        </div>
+    		        <div class="col-sm-4 col-lg-2">
+    		        	<h2 class="shop_text">Address </h2>
+    		        	<div class="image-icon"><img src="{% static 'images/map-icon.png' %}"><span class="pet_text">No 40 Baria Sreet 15/2 NewYork City, NY, United States.</span></div>
+    		        </div>
+    		        <div class="col-sm-4 col-md-6 col-lg-3">
+    				    <h2 class="shop_text">Our Company </h2>
+    				    <div class="delivery_text">
+    				    	<ul>
+    				    		<li>Delivery</li>
+    				    		<li>Legal Notice</li>
+    				    		<li>About us</li>
+    				    		<li>Secure payment</li>
+    				    		<li>Contact us</li>
+    				    	</ul>
+    				    </div>
+    		        </div>
+    			<div class="col-sm-6 col-lg-3">
+    				<h2 class="adderess_text">Products</h2>
+    				<div class="delivery_text">
+    				    	<ul>
+    				    		<li>Prices drop</li>
+    				    		<li>New products</li>
+    				    		<li>Best sales</li>
+    				    		<li>Contact us</li>
+    				    		<li>Sitemap</li>
+    				    	</ul>
+    				    </div>
+    			</div>
+    			<div class="col-sm-6 col-lg-2">
+    				<h2 class="adderess_text">Newsletter</h2>
+    				<div class="form-group">
+                        <input type="text" class="enter_email" placeholder="Enter Your email" name="Name">
+                    </div>
+                    <button class="subscribr_bt">Subscribe</button>
+    			</div>
+    			</div>
+    	        </div> 
+	        </div>
+    	</div>
+    </div>
+	<!-- section footer end -->
+	<div class="copyright">2019 All Rights Reserved. <a href="https://html.design">Free html  Templates</a></div>
+
+
+      <!-- Javascript files-->
+      <script src="{% static '{js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/popper.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+      <script src="{% static 'js/plugin.js' %}"></script>
+      <!-- sidebar -->
+      <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script src="{% static 'js/custom.js' %}"></script>
+      <!-- javascript --> 
+      <script src="{% static 'js/owl.carousel.js' %}"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js' %}"></script>
+      <script>
+         $(document).ready(function(){
+         $(".fancybox").fancybox({
+         openEffect: "none",
+         closeEffect: "none"
+         });
+         
+         
+$('#myCarousel').carousel({
+            interval: false
+        });
+
+        //scroll slides on swipe for touch enabled devices
+
+        $("#myCarousel").on("touchstart", function(event){
+
+            var yClick = event.originalEvent.touches[0].pageY;
+            $(this).one("touchmove", function(event){
+
+                var yMove = event.originalEvent.touches[0].pageY;
+                if( Math.floor(yClick - yMove) > 1 ){
+                    $(".carousel").carousel('next');
+                }
+                else if( Math.floor(yClick - yMove) < -1 ){
+                    $(".carousel").carousel('prev');
+                }
+            });
+            $(".carousel").on("touchend", function(){
+                $(this).off("touchmove");
+            });
+        });
+      </script> 
+{% endblock %}

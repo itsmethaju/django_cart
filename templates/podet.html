@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% load static %}
+{% block content %}
+ <body>
+ <img src="{{pr.img.url}}">
+ <h3>{{pr.name}}</h3>
+ <h4>{{pr.desc}}</h4>
+ <p> stock :{{pr.stock}}</p>
+ <P>{{pr.available}}</P>
+ {% if pr.stock >= 0 %}
+    <a href="{% url 'addcart' pr.id %}" class="tm-btn tm-btn-1 tm-link-to-services">add to cart</a>
+    {% else %}
+    <h1 style="color:red">sorry no stock left</h1>
+{% endif %}
+  </body>
+
+{% endblock %}
