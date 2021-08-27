@@ -1,0 +1,42 @@
+<Html>
+<head>
+    <title>
+        Registration Page
+    </title>
+</head>
+<body bgcolor="Lightskyblue">
+<br>
+<br>
+<form action="register" method="post">
+    {% csrf_token %}
+    <label> First_name </label>
+    <input type="text" name="first_name" size="15"/> <br> <br>
+    <label> last_name: </label>
+    <input type="text" name="last_name" size="15"/> <br> <br>
+    <label> username: </label>
+    <input type="text" name="username" size="15"/> <br> <br>
+
+
+    <br> <br>
+    Email:
+    <input type="email" id="email" name="email"/> <br>
+    <br> <br>
+    Password:
+    <input type="Password" id="password" name="password"> <br>
+    <br> <br>
+    ConformPassword:
+    <input type="Password" id="password2" name="password2"> <br>
+    <br> <br>
+    <!--    Re-type password:  -->
+    <!--    <input type="Password" id="password2" name="repass"> <br> <br>-->
+    <input type="submit" value="registeration"/>
+</form>
+<dib>
+    {% for message in messages %}
+    <h4>{{message}}</h4>
+    {% endfor %}
+</dib>
+</body>
+</html>
+
+
